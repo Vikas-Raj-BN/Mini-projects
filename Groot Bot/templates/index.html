@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROOT Chatbot</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 500px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 90%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            padding: 20px;
+            background-color: #6c63ff;
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .chat-box {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f9f9f9;
+            border-radius: 0 0 10px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            scroll-behavior: smooth;
+        }
+
+        .message {
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .user-message {
+            justify-content: flex-end;
+        }
+
+        .bot-message {
+            justify-content: flex-start;
+        }
+
+        .message-bubble {
+            padding: 12px 18px;
+            border-radius: 20px;
+            max-width: 70%;
+            word-wrap: break-word;
+            font-size: 1rem;
+        }
+
+        .user-message .message-bubble {
+            background-color: #6c63ff;
+            color: white;
+        }
+
+        .bot-message .message-bubble {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #5a54d1;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <h1>Welcome to GROOT Chatbot!</h1>
+        <div class="chat-box" id="chat-box">
+            {% if chat_history %}
+                {% for chat in chat_history %}
+                    <div class="message user-message">
+                        <div class="message-bubble">{{ chat.user }}</div>
+                    </div>
+                    <div class="message bot-message">
+                        <div class="message-bubble">{{ chat.bot }}</div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="message bot-message">
+                    <div class="message-bubble">Welcome! 😊 I’m here to assist you. Just ask away!</div>
+                </div>
+            {% endif %}
+        </div>
+        <form method="POST" onsubmit="scrollToBottom()">
+            <input type="text" name="user_message" placeholder="Type your message..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script>
+        function scrollToBottom() {
+            const chatBox = document.getElementById('chat-box');
+            setTimeout(() => {
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 100);
+        }
+        scrollToBottom();
+    </script>
+</body>
+</html>
