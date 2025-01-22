@@ -37,14 +37,9 @@ Virtual Environment (recommended for dependency management)
                      
 🚀 How to Run a Project
                      
-1.Clone the repository:
-git clone https://github.com/your-username/python-projects.git
-
-cd python-projects
+1.Navigate to the desired project directory.
                      
-2.Navigate to the desired project directory.
-                     
-3.Set up the environment (if applicable):
+2.Set up the environment (if applicable):
 
 python -m venv env
                          
@@ -54,7 +49,7 @@ source env/bin/activate  # For Linux/Mac
 
 pip install -r requirements.txt
                           
-4.Run the project:
+3.Run the project:
 python main.py
 
 🌐 Connect with Me
