@@ -9,22 +9,22 @@ Featured Projects
 Groot Bot: Conversational Companion
 An engaging chatbot designed for seamless and intelligent conversations.
 
-Health Record Organizer
+Health Record Organizer:
 A web-based application for managing health records, featuring user authentication, unique ID generation, and a dashboard for report management.
   
-Math Speed Test
+Math Speed Test:
 A fun and challenging game to test your math skills under time pressure.
 
-Quiz Game
+Quiz Game:
 A customizable quiz game with various topics and difficulty levels.
 
-Race to 50
+Race to 50:
 A strategy-based game where players compete to reach the target number first.
 
-Rock Paper Scissors
+Rock Paper Scissors:
 The classic game with an interactive Python twist.
 
-Word Puzzle Challenge
+Word Puzzle Challenge:
 Solve word puzzles and test your vocabulary in this addictive game.
 
 🛠️ Requirements
